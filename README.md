@@ -12,9 +12,9 @@ My selected country is Algeria.
 
 The relevant blog post for this assessment is in index.html
 
-- [-] Selected a country
-- [-] Website with R markdown 
-- [-] A working URL
+- [x] Selected a country
+- [x] Website with R markdown 
+- [x] A working URL
 - [ ] Data description
 - [ ] Short data story
 - [ ] Table 1
