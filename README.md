@@ -2,7 +2,7 @@
 
 
 This is the blog of Smriti Vinayak Bhat.
-The URL of this blog is [FILL].
+The URL of this blog is https://covid-trend-algeria.netlify.app.
 
 ## Blog Post 1
 
@@ -10,11 +10,11 @@ This assessment is due Fri Sep 3 2021 11.55PM AEST.
 
 My selected country is Algeria.
 
-The relevant blog post for this assessment is in [FILL].html
+The relevant blog post for this assessment is in index.html
 
-- [ ] Selected a country
-- [ ] Website with R markdown 
-- [ ] A working URL
+- [-] Selected a country
+- [-] Website with R markdown 
+- [-] A working URL
 - [ ] Data description
 - [ ] Short data story
 - [ ] Table 1
