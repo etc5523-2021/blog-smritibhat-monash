@@ -1,5 +1,6 @@
 ---
-title: "Algerian Pandemic Situation"
+title: "Covid-19: Algeria"
+description: "A dashboard for covid-19 statistics in Algeria."
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
@@ -8,6 +9,18 @@ output: distill::distill_article
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
+
+
+
+
+## Citations
+
+Mathieu, E., Ritchie, H., Ortiz-Ospina, E. et al. A global database of COVID-19 vaccinations. Nat Hum Behav (2021). https://doi.org/10.1038/s41562-021-01122-8
+
+Hasell, J., Mathieu, E., Beltekian, D. et al. A cross-country database of COVID-19 testing. Sci Data 7, 345 (2020). https://doi.org/10.1038/s41597-020-00688-8
+
+Covid-19 government measures dataset. ACAPS. (2020, December 10). https://www.acaps.org/covid-19-government-measures-dataset. 
 
 
 

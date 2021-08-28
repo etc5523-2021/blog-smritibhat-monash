@@ -1,19 +1,10 @@
 ---
 title: "ETC5523 - Blog Posts"
-description: |
-  A series of blog posts for ETC5523.
+description: "|
+  A series of blog posts for ETC5523."
 author:
-  - name: "Smriti Vinayak Bhat" 
-    url: https://example.com/smritibhat
+  - name: "Smriti Vinayak Bhat"
     affiliation: Monash University
-    affiliation_url: https://example.com/smritibhat
-navbar:
-  right:
-    - text: "Blog 1"
-      href: blog1.html
-    - text: "Blog 2"
-      href: blog2.html
-
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---

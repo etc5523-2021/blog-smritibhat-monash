@@ -2,7 +2,6 @@
 name: "Trends Analysis"
 title: "Trends Analysis"
 navbar:
-  search: true
   right:
     - text: "Blogs"
       menu:
@@ -10,8 +9,6 @@ navbar:
           href: blog1.html
         - text: "Blog2"
           href: blog2.html
-    - text: "Citations"
-      href: citations.html
-    
+  search: true
 output: distill::distill_article
 ---
