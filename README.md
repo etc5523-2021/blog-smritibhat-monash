@@ -10,7 +10,8 @@ This assessment is due Fri Sep 3 2021 11.55PM AEST.
 
 My selected country is Algeria.
 
-The relevant blog post for this assessment is in index.html
+The relevant blog post for this assessment is in blog1.html
+The URL of this blog post is https://covid-trend-algeria.netlify.app/blog1.html
 
 - [x] Selected a country
 - [x] Website with R markdown 
