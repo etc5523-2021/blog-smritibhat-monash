@@ -68,7 +68,20 @@ paged_table(k, options = list(rows.print = 5, cols.print = 2))
   
 ```
 
+## Numerical Summary Statistics
 
+```{r}
+statistics <- data.frame(
+  Variables = c("new_cases", "new_deaths"),
+  Mean = c(mean(covid_algeria$new_cases, na.rm = TRUE),
+                mean(covid_algeria$new_deaths, na.rm = TRUE)),
+  SD = c(sd(covid_algeria$new_cases, na.rm = TRUE),
+                  sd(covid_algeria$new_deaths, na.rm = TRUE)),
+  `Maximum Value` = c(max(covid_algeria$new_cases, na.rm = TRUE),
+                      max(covid_algeria$new_deaths, na.rm = TRUE))
+  )
+paged_table(statistics)
+```
 
 
 
