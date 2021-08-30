@@ -2,12 +2,18 @@
 title: "Covid-19: Algeria"
 description: "Policy Measures: Effective or ineffective"
 date: "`r Sys.Date()`"
-output: distill::distill_article
+output:
+  distill::distill_article:
+    toc: true
+    theme: theme.css
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(rmarkdown)
 ```
 
 ```{r dataDownload}
@@ -31,8 +37,36 @@ measures_algeria <- measures %>%
 covid_algeria <- full_join(covid_stats_algeria, measures_algeria, by = c("date" = "DATE_IMPLEMENTED"))
 ```
 
+## Data Description
 
+Data sets used in this report come from two main sources - 
 
+1.    Collection of the COVID-19 data maintained by [Our World in Data](https://github.com/owid/covid-19-data/tree/master/public/data).
+2.    [COVID-19 Government Measures Dataset](https://www.acaps.org/covid-19-government-measures-dataset) by ACAPS.
+
+It contains a collection of data with `r length(covid_stats)` variables for COVID-19 dataset.
+The data is available from `r covid_stats_algeria$date[1]` to `r covid_stats_algeria$date[550]` upon filtering for Algeria. The data sets are then filtered to select only the appropriate variables. Out of 62 variables in the COVID-19 dataset, only 5 were selected while 8 out of the 18 variables in the government measures dataset were selected. These tables are then merged together using the full join technique to get our final working dataset.
+
+**Descriptions of variables -**
+```{r}
+
+k <- data.frame(Variables = names(covid_algeria),
+                Description = c("Date values",
+                                "New cases recorded on date",
+                                "New deaths recorded on date",
+                                "Total number of cases recorded till date from start of pandemic",
+                                "Total number of deaths recorded till date from start of pandemic",
+                                "Introduction / extension of measures, Phase-out of measures",
+                                "Movement restrictions, Public- health measures, Social and economic measures, Lockdown, Humanitarian exemptions",
+                                "Measures types and categories",
+                                "Description of measure taken with further details",
+                                "Source organization",
+                                "Source organization type",
+                                "Link to source website"))
+
+paged_table(k, options = list(rows.print = 5, cols.print = 2))
+  
+```
 
 
 

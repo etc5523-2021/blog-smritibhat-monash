@@ -1,7 +1,8 @@
 ---
 name: "Trends Analysis"
-title: "Trends Analysis"
+title: "ETC5523"
 navbar:
+  source_url: https://github.com/etc5523-2021/blog-smritibhat-monash
   right:
     - text: "Blogs"
       menu:
@@ -9,6 +10,4 @@ navbar:
           href: blog1.html
         - text: "Blog2"
           href: blog2.html
-  search: true
-output: distill::distill_article
 ---
