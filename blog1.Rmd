@@ -1,12 +1,34 @@
 ---
 title: "Covid-19: Algeria"
-description: "A dashboard for covid-19 statistics in Algeria."
+description: "Policy Measures: Effective or ineffective"
 date: "`r Sys.Date()`"
 output: distill::distill_article
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+```
+
+```{r dataDownload}
+
+covid_stats <- read_csv("data/owid-covid-data.csv")
+measures <- readxl::read_excel("data/acaps_covid19_government_measures_dataset_0.xlsx",2)
+
+```
+
+```{r dataWrangling}
+
+#Filter for Algeria
+covid_stats_algeria <- covid_stats %>%
+  filter(location == "Algeria") %>%
+  select(date, new_cases, new_deaths, total_cases, total_deaths)
+
+measures_algeria <- measures %>%
+  filter(COUNTRY == "Algeria") %>%
+  select(LOG_TYPE, CATEGORY, MEASURE, COMMENTS, DATE_IMPLEMENTED, SOURCE, SOURCE_TYPE, LINK)
+
+covid_algeria <- full_join(covid_stats_algeria, measures_algeria, by = c("date" = "DATE_IMPLEMENTED"))
 ```
 
 
@@ -14,9 +36,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 
 
-## Citations
 
-Mathieu, E., Ritchie, H., Ortiz-Ospina, E. et al. A global database of COVID-19 vaccinations. Nat Hum Behav (2021). https://doi.org/10.1038/s41562-021-01122-8
+
+## Citations
 
 Hasell, J., Mathieu, E., Beltekian, D. et al. A cross-country database of COVID-19 testing. Sci Data 7, 345 (2020). https://doi.org/10.1038/s41597-020-00688-8
 
