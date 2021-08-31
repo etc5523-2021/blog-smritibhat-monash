@@ -1,0 +1,18 @@
+.distill-site-nav {
+  background-color: #4682B4;
+  font-size: 15px;
+}
+
+.d-title {
+  background-image: url("images/title.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+#TOC {
+  background-color: #4682B4;
+  color: white;
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
