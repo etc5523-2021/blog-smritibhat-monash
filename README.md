@@ -16,12 +16,12 @@ The URL of this blog post is https://covid-trend-algeria.netlify.app/blog1.html
 - [x] Selected a country
 - [x] Website with R markdown 
 - [x] A working URL
-- [ ] Data description
-- [ ] Short data story
-- [ ] Table 1
-- [ ] Table 2
-- [ ] Customised website with CSS
-- [ ] Submitted the entire blog to Moodle
+- [x] Data description
+- [x] Short data story
+- [x] Table 1
+- [x] Table 2
+- [x] Customised website with CSS
+- [x] Submitted the entire blog to Moodle
 
 ## Blog Post 2
 
