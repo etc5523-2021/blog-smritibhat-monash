@@ -76,13 +76,13 @@ covid_stats_eu <- covid_stats %>%
 
 cols <- c("#FFB400", "#FFC740", "#C20008", "#FF020D", "#13AFEF", "#4276ac")
 
-p <- ggplot(covid_stats_eu, aes(date, new_cases, fill = location, label = new_cases)) +
+ggplot(covid_stats_eu, aes(date, new_cases, fill = location, label = new_cases)) +
   geom_stream(color = 1, lwd = 0.25, bw = 1) +
   scale_fill_manual(values = cols) +
   theme_minimal()
 
 
-ggplotly(p)
+
 
 ```
 
