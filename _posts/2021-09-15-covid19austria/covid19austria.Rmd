@@ -18,6 +18,7 @@ library(lubridate)
 library(mapdeck)
 library(ggstream)
 library(plotly)
+library(ggthemes)
 ```
 
 ## Introduction
@@ -76,12 +77,12 @@ covid_stats_eu <- covid_stats %>%
 
 cols <- c("#FFB400", "#FFC740", "#C20008", "#FF020D", "#13AFEF", "#4276ac")
 
-ggplot(covid_stats_eu, aes(date, new_cases, fill = location, label = new_cases)) +
+steam <- ggplot(covid_stats_eu, aes(date, new_cases, fill = location, label = new_cases)) +
   geom_stream(color = 1, lwd = 0.25, bw = 1) +
   scale_fill_manual(values = cols) +
   theme_minimal()
 
-
+ggplotly(steam)
 
 
 ```
@@ -100,14 +101,39 @@ covid_stats_au_1 <- covid_stats %>%
 covid_stats_au_2 <- covid_stats %>%
   filter(location == "Austria") %>%
   select(date, new_cases, new_deaths) %>%
-  filter(date >= "2020-12-06")
+  filter(date >= "2020-12-06" & date <= "2021-01-06")
 ```
 
 ```{r}
 
+p1 <- covid_stats_au_1 %>%
+  ggplot(aes(date, new_cases)) +
+  geom_line() +
+  theme_wsj() +
+  ylab("New Cases") +
+  theme(legend.position = "none",
+        title = element_text(size = 10)) +
+  labs(title = "Covid-19 Cases trend under strict lockdown")
+
+
+p2 <- covid_stats_au_2 %>%
+  ggplot(aes(date, new_cases)) +
+  geom_line() +
+  theme_wsj() +
+  ylab("New Cases") +
+  theme(legend.position = "none",
+        title = element_text(size = 10)) +
+  labs(title = "Covid-19 Cases trend after lifting strict lockdown")
+
 ```
 
+```{r}
+ggplotly(p1)
+```
 
+```{r}
+ggplotly(p2)
+```
 
 
 ## Citations
