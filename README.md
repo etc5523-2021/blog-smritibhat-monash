@@ -11,7 +11,7 @@ This assessment is due Fri Sep 3 2021 11.55PM AEST.
 My selected country is Algeria.
 
 The relevant blog post for this assessment is in blog1.html
-The URL of this blog post is https://covid-trend-algeria.netlify.app/blog1.html
+The URL of this blog post is https://covid-trend-algeria.netlify.app/posts/2021-09-15-covid-19-algeria/
 
 - [x] Selected a country
 - [x] Website with R markdown 
@@ -27,11 +27,11 @@ The URL of this blog post is https://covid-trend-algeria.netlify.app/blog1.html
 
 This assessment is due Fri Sep 17 2021 11.55PM AEST.
 
-My selected country is [FILL].
+My selected country is Austria.
 
-The relevant blog post for this assessment is in [FILL].html
+The relevant blog post for this assessment is in https://covid-trend-algeria.netlify.app/posts/2021-09-15-covid19austria/
 
-- [ ] Selected a new country
+- [x] Selected a new country
 - [ ] Data Story 1
 - [ ] Data Story 2
 - [ ] Graph 1

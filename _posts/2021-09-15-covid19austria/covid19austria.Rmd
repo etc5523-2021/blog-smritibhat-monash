@@ -1,7 +1,7 @@
 ---
-title: "Covid19Austria"
+title: "Covid19: Austria"
 description: |
-  TBD
+  A Tale of Two Articles
 date: "`r Sys.Date()`"
 output:
   distill::distill_article:
@@ -14,38 +14,112 @@ knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
 library(tidyverse)
 library(knitr)
 library(kableExtra)
-library(rmarkdown)
-library(DT)
-library(sparkline)
 library(lubridate)
-library(fontawesome)
+library(mapdeck)
+library(ggstream)
+library(plotly)
 ```
+
+## Introduction
+
+Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. It began spreading in earnest in the early 2020's and has led to a global crisis of never-seen before proportions. People are being forced to stay indoors to reduce risk of exposure and spread of the disease.
+
+Austria, a country in the Europe has also had to endure this crisis.
+
+This blog post is aimed at investigating a few key articles that became breaking news during the time and checking the veracity of their claims.
+
+## The First Article
+
+```{r data1}
+
+wave1 <- tibble(Country = c("Austria", "Iceland", "Denmark", "Norway", "Finland", "Germany"),
+                Cases = c(1, 8, 4, 10, 6, 14),
+                Dates = c("07/03/2020", "04/03/2020", "08/03/2020", "09/03/2020", "09/03/2020", "12/03/2020"),
+                lat = c(47.516232, 64.963051, 56.263920, 60.472023, 61.924110, 51.1657),
+                long = c(14.550072, -19.020836, 9.501785, 8.468946, 25.748152, 10.4515),
+                lat_from = c(47.516232, 47.516232, 47.516232, 47.516232, 47.516232, 47.516232),
+                long_from = c(14.550072, 14.550072, 14.550072, 14.550072, 14.550072, 14.550072),)
+
+
+covid_stats <- read_csv("../../data/owid-covid-data.csv")
+```
+
+
+
+```{r map1}
+key = "pk.eyJ1Ijoic21yaXRpYmhhdC1tb25hc2giLCJhIjoiY2t0anJjZW50MG41djJ3cW40cGpkMnp3eCJ9.trgg-yv2Femn9glwxksBVQ"
+
+wave1 <- wave1 %>%
+  mutate(cases_text = paste0("Number of cases: ", Cases))
+
+mapdeck(token = key, style = mapdeck_style("light"), pitch = 85 ) %>%
+  add_arc(
+    data = wave1,
+    layer_id = "arc_layer",
+    origin = c("long_from", "lat_from"),
+    destination = c("long", "lat"),
+    stroke_from = "#FFB344",
+    stroke_to = "#00A19D",
+    stroke_width = 10,
+    tooltip = "cases_text",
+    auto_highlight = TRUE
+  ) %>%
+  add_title(title = "Spread of Covid-19 from Ground Zero", layer_id = "title")
+```
+
+```{r viz2}
+
+covid_stats_eu <- covid_stats %>%
+  filter(location %in% wave1$Country) %>%
+  select(date, new_cases, new_deaths, location) %>%
+  filter(date <= "2020-04-05")
+
+cols <- c("#FFB400", "#FFC740", "#C20008", "#FF020D", "#13AFEF", "#4276ac")
+
+p <- ggplot(covid_stats_eu, aes(date, new_cases, fill = location, label = new_cases)) +
+  geom_stream(color = 1, lwd = 0.25, bw = 1) +
+  scale_fill_manual(values = cols) +
+  theme_minimal()
+
+
+ggplotly(p)
+
+```
+
+
+
+## The Second Article
+
+
+```{r}
+covid_stats_au_1 <- covid_stats %>%
+  filter(location == "Austria") %>%
+  select(date, new_cases, new_deaths) %>%
+  filter(date >= "2020-11-06" & date <= "2020-12-06")
+
+covid_stats_au_2 <- covid_stats %>%
+  filter(location == "Austria") %>%
+  select(date, new_cases, new_deaths) %>%
+  filter(date >= "2020-12-06")
+```
+
+```{r}
+
+```
+
 
 
 
 ## Citations
 
-Hasell, J., Mathieu, E., Beltekian, D. et al. A cross-country database of COVID-19 testing. Sci Data 7, 345 (2020). https://doi.org/10.1038/s41597-020-00688-8
 
-Covid-19 government measures dataset. ACAPS. (2020, December 10). https://www.acaps.org/covid-19-government-measures-dataset. 
+Hersche, D. I. B., Kern, U.-P. D. W. V., Stuber- Berries, D. N., Rohrer, D. R., Trkola, D. A., &amp; Weber, U.-P. D. K. (2020, October 12). BERICHT DER UNABHÄNGIGEN EXPERTENKOMMISSION MANAGEMENT COVID-19-PANDEMIE TIROL. Vienna; Consumer Protection Association (VSV). https://www.verbraucherschutzverein.eu/wp-content/uploads/2021/08/Expertenkommission-Bericht.pdf
 
-Gallagher, J. (2020, November 20). Covid: What is a circuit-breaker could one fight the virus? BBC News. https://www.bbc.com/news/health-54206582.
+Guardian News and Media. (2020, November 27). 'A Christmas not like others': Europe wrestles with FESTIVE Covid rules. The Guardian. Retrieved September 15, 2021, from https://www.theguardian.com/world/2020/nov/27/christmas-not-like-others-europe-wrestles-festive-covid-rules. 
 
 Wickham et al., (2019). Welcome to the tidyverse. Journal of Open Source Software, 4(43), 1686, https://doi.org/10.21105/joss.01686
 
-Richard Iannone (2021). fontawesome: Easily Work with 'Font Awesome' Icons. R package version 0.2.2. https://CRAN.R-project.org/package=fontawesome
-
 Garrett Grolemund, Hadley Wickham (2011). Dates and Times Made Easy with lubridate. Journal of Statistical Software, 40(3), 1-25. URL https://www.jstatsoft.org/v40/i03/.
-
-Ramnath Vaidyanathan, Kent Russell and Gareth Watts (2016). sparkline: 'jQuery' Sparkline 'htmlwidget'. R package version 2.0. https://CRAN.R-project.org/package=sparkline
-
-Yihui Xie, Joe Cheng and Xianying Tan (2021). DT: A Wrapper of the JavaScript Library 'DataTables'. R package version 0.18. https://CRAN.R-project.org/package=DT
-
-JJ Allaire and Yihui Xie and Jonathan McPherson and Javier Luraschi and Kevin Ushey and Aron Atkins and Hadley Wickham and Joe Cheng and Winston Chang and Richard Iannone(2021). rmarkdown: Dynamic Documents for R. R package version 2.9. URL https://rmarkdown.rstudio.com.
-
-Yihui Xie and J.J. Allaire and Garrett Grolemund (2018). R Markdown: The Definitive Guide. Chapman and Hall/CRC. ISBN 9781138359338. URL https://bookdown.org/yihui/rmarkdown.
-
-Yihui Xie and Christophe Dervieux and Emily Riederer (2020). R Markdown Cookbook. Chapman and Hall/CRC. ISBN 9780367563837. URL https://bookdown.org/yihui/rmarkdown-cookbook.
 
 Hao Zhu (2021). kableExtra: Construct Complex Table with 'kable' and Pipe Syntax. R package version 1.3.4. https://CRAN.R-project.org/package=kableExtra
 

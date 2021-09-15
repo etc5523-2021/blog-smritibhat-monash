@@ -11,7 +11,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\nI am a graduate MS in Business Analytics student at Monash University, Australia. I was previously employed as a software developer in Wipro Limited for 2 years. With a broad skillset from R to Python and Tableau, I am looking forward to more opportunities to enhance my experience in these areas.\nI am heavily invested in learning visualization and analytics. I am passionate about innovative ways to present data as well as finding patterns that might be buried otherwise.\n\n\n\n",
-      "last_modified": "2021-09-15T15:53:03+05:30"
+      "last_modified": "2021-09-16T02:52:15+05:30"
     },
     {
       "path": "index.html",
@@ -25,7 +25,7 @@
       ],
       "date": "`r Sys.Date()`",
       "contents": "\n\n\n\n",
-      "last_modified": "2021-09-15T15:53:04+05:30"
+      "last_modified": "2021-09-16T02:52:17+05:30"
     }
   ],
   "collections": ["posts/posts.json"]
