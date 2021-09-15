@@ -6,7 +6,8 @@ author:
   - name: "Smriti Vinayak Bhat"
     affiliation: Monash University
 date: "`r Sys.Date()`"
-output: distill::distill_article
+site: distill::distill_website
+listing: posts
 ---
 
 ```{r setup, include=FALSE}

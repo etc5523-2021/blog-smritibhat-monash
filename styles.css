@@ -1,18 +1,40 @@
-.distill-site-nav {
-  background-color: #4682B4;
-  font-size: 15px;
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+
+.distill-site-header {
+  --text-size:        15px;
+  --hover-color:      #63C6FF;
+  --bkgd-color:       #4682B4;
 }
 
-.d-title {
-  background-image: url("images/title.png");
-  background-repeat: no-repeat;
-  background-position: right;
+.distill-site-footer {
+  --text-size:        15px;
+  --hover-color:      #63C6FF;
+  --bkgd-color:       #4682B4;
 }
+
 
 #TOC {
   background-color: #4682B4;
   color: white;
   padding-right: 1em;
   padding-left: 1em;
+}
+
+
+html {
+  
+  --title-size:      50px;
+  --body-size:       1.2rem;                    
+  --aside-size:      12px;
+  --fig-cap-size:    13px;
+
+  --heading-font:    'Playfair Display', serif;
+  --mono-font:       'Slabo 27px', serif;
+  --body-font:       'Slabo 27px', serif;       
+  --navbar-font:     'Slabo 27px', serif;         
 }
 

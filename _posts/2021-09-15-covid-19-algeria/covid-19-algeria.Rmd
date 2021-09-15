@@ -4,9 +4,10 @@ description: "Policy Measures: Effective or ineffective"
 date: "`r Sys.Date()`"
 output:
   distill::distill_article:
+    self_contained: false
     toc: true
-    theme: theme.css
 ---
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
@@ -20,10 +21,19 @@ library(lubridate)
 library(fontawesome)
 ```
 
+```{css}
+
+.d-title {
+  background-image: url("../../images/title.png");
+  background-repeat: no-repeat;
+  background-position: right;
+}
+```
+
 ```{r dataDownload}
 
-covid_stats <- read_csv("data/owid-covid-data.csv")
-measures <- readxl::read_excel("data/acaps_covid19_government_measures_dataset_0.xlsx",2)
+covid_stats <- read_csv("../../data/owid-covid-data.csv")
+measures <- readxl::read_excel("../../data/acaps_covid19_government_measures_dataset_0.xlsx",2)
 
 ```
 
