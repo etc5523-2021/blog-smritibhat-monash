@@ -76,7 +76,8 @@ key = "pk.eyJ1Ijoic21yaXRpYmhhdC1tb25hc2giLCJhIjoiY2t0anJjZW50MG41djJ3cW40cGpkMn
 wave1 <- wave1 %>%
   mutate(cases_text = paste0("Number of cases: ", Cases))
 
-mapdeck(token = key, style = mapdeck_style("light"), pitch = 85 ) %>%
+mapdeck(token = key, style = mapdeck_style("light"),
+        pitch = 85) %>%
   add_arc(
     data = wave1,
     layer_id = "arc_layer",
@@ -86,7 +87,8 @@ mapdeck(token = key, style = mapdeck_style("light"), pitch = 85 ) %>%
     stroke_to = "#00A19D",
     stroke_width = 10,
     tooltip = "cases_text",
-    auto_highlight = TRUE
+    auto_highlight = TRUE,
+    focus_layer = TRUE
   ) %>%
   add_title(title = "Spread of Covid-19 from Ground Zero", layer_id = "title")
 ```
