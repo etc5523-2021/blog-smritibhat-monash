@@ -2,10 +2,6 @@
 title: "ETC5523 - Blog Posts"
 description: "|
   A series of blog posts for ETC5523."
-author:
-  - name: "Smriti Vinayak Bhat"
-    affiliation: Monash University
-date: "`r Sys.Date()`"
 site: distill::distill_website
 listing: posts
 ---
