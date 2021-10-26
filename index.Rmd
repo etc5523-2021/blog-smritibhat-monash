@@ -1,7 +1,7 @@
 ---
-title: "ETC5523 - Blog Posts"
+title: "Blog Posts"
 description: "|
-  A series of blog posts for ETC5523."
+  A series of blog posts with R"
 site: distill::distill_website
 listing: posts
 ---
